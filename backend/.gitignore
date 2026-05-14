@@ -1,0 +1,6 @@
+venv/
+__pychche__/
+.env
+*.__pychche__
+tests/
+.vscode/

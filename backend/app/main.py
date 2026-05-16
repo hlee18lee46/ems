@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from app.router.health import router as health_router
 from app.router.employees import router as employees_router
+from app.router.auth import router as auth_router
 from app.core.settings import settings
 
 logging.basicConfig(
@@ -14,10 +15,12 @@ logging.basicConfig(
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Employee Management System")
+
     app.state.settings = settings
 
     app.include_router(health_router)
     app.include_router(employees_router)
+    app.include_router(auth_router)
 
     return app
 
